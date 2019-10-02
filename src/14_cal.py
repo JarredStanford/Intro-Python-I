@@ -21,4 +21,23 @@ and does the following:
 
 import sys
 import calendar
-from datetime import datetime
+from datetime import date
+
+if sys.argv[2] is None:
+    print("lol")
+
+today = date.today()
+try:
+    month = int(sys.argv[1])
+except:
+    month = today.month
+
+try:
+    year = int(sys.argv[2][1:-1])
+except:
+    year = today.year
+
+if len(sys.argv) > 3:
+    print('Please enter no more than 2 variables: a month and a [year].')
+else:
+    print(calendar.monthcalendar(year, month))
